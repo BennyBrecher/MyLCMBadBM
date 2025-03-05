@@ -5,6 +5,10 @@
     <persistence-unit name="jDiskMarkPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+	<!-- Explicitly list the entity class -->
+        <class>edu.touro.mco152.bm.persist.DiskRun</class>
+
         <properties>
             <property name="eclipselink.logging.level" value="FINE"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:derbyDB;create=true"/>

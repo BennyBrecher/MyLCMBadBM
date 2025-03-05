@@ -40,17 +40,18 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
 sourceSets {
     main {
         java {
-            srcDirs = ['lib/src/main/java']
+            srcDirs = ['src/main/java']
         }
         resources {
-            srcDirs = ['lib/src/main/resources']
+            // Same idea for resources
+            srcDirs = ['src/main/resources']
         }
     }
 }
