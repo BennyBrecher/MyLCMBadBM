@@ -26,6 +26,15 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation libs.guava
+
+    // Charting api/runtime
+   implementation group: 'org.jfree', name: 'jfreechart', version: '1.0.17'
+   // persistence API
+   implementation group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.0.0'
+   implementation group: 'org.eclipse.persistence', name: 'eclipselink', version: '3.0.2'
+   // DBMS
+   implementation group: 'org.apache.derby', name: 'derby', version: '10.15.2.0'
+   implementation group: 'org.apache.derby', name: 'derbyshared', version: '10.15.2.0'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -52,4 +61,16 @@ sourceSets.main.output.resourcesDir = sourceSets.main.java.outputDir
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+jar {
+    archiveBaseName = 'badbm'  // The JAR will be named badbm.jar
+    manifest {
+        attributes 'Main-Class': 'edu.touro.mco152.bm.App'
+    }
+    // Include all runtime dependencies in the JAR (fat jar)
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
