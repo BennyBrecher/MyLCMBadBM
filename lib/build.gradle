@@ -35,6 +35,20 @@ java {
     }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['lib/src/main/java']
+        }
+        resources {
+            srcDirs = ['lib/src/main/resources']
+        }
+    }
+}
+
+// This ensures that when Gradle compiles your code, it copies the resources to the same output directory as your compiled classes.
+sourceSets.main.output.resourcesDir = sourceSets.main.java.outputDir
+
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
