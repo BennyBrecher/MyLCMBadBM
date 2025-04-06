@@ -22,11 +22,9 @@ public class Util {
      *
      * @param path Directory to delete
      * @return True if path deleted successfully
-     *
-     * TODO: Induced 2 Tests to fail by adding a 'not' operator in first if statement (must fix before merging)
      */
     static public boolean deleteDirectory(File path) {
-        if (!path.exists()) {
+        if (path.exists()) {
             File[] files = path.listFiles();
             for (File file : files) {
                 if (file.isDirectory()) {
