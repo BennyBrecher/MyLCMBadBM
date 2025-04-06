@@ -15,7 +15,18 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
+
+    /*
+    the article posted on canvas told me to use this but the below code was already included which seems to be up to date and working
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+     */
+
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
 
