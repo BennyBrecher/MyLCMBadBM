@@ -263,7 +263,7 @@ public class App {
         Gui.mainFrame.adjustSensitivity();
 
         //4. set up disk worker thread and its event handlers
-        worker = new DiskWorker();
+        worker = new DiskWorker(new AppBenchmarkSettings(), new SwingUI(), new GeneralUsageBenchmarker()); //updated for ctor with args after DIP refactoring
         worker.addPropertyChangeListener((final PropertyChangeEvent event) -> {
             switch (event.getPropertyName()) {
                 case "progress":
