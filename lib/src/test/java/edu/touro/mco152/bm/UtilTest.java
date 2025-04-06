@@ -12,33 +12,6 @@ import java.nio.file.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- Challenges:
- 1) In our zoom meeting discussing the refactoring homework you mentioned i submitted my code even though it didn't run
- so i tracked down the error and realized it was due to my mistake of forgetting to inject my new dependencies i made into the DiskWorker construction on line 266 in the App class
- i then changed the instantiation to "worker = new DiskWorker(new AppBenchmarkSettings(), new SwingUI(), new GeneralUsageBenchmarker());
- instead  of the no args construction like it previously had which reflected my DIP work done last time, and then it ran smooth as usual
-
-
- 2) when I had to enable JUnit I was following the article yu gave and it told me to use:
- testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
- testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-
- But my dependencies in build.gradle already included:
- testImplementation libs.junit.jupiter
- testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
- I decided to keep what was already in my build.gradle since i was unsure about how up to date the article mightve been
- (i did attempt running tests with both after a build sync and each let tests run and pass properly so it didn't make a difference but im still unsure what the real difference in the dependencies are)
-
- 3) I had a bit of trouble making my tests be specific to one of the Right BICEP's exclusively since my normal way i do testing kinda overlaps each so the lines were a bit blurred for me in the beginning but i think my tests came out neat enough in the end
-
- 4) I wasn't as familiar with CORRECT as i was for BICEP and i misunderstood it to only be applicable for Boundary tests but after a quick search it seemed that CORRECT is used for any test i do so i added in each tests doc which CORRECT each related to after
-
- ./gradlew clean jar test --info
- TODO: Break shit
- **/
-
 
 public class UtilTest {
 
