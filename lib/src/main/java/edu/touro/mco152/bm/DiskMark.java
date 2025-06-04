@@ -6,7 +6,6 @@ import java.text.DecimalFormat;
  * Tracks and records progress as a disk read or write is being executed
  */
 public class DiskMark {
-
     static DecimalFormat df = new DecimalFormat("###.###");
     MarkType type;
     private int markNum = 0;       // x-axis
@@ -14,7 +13,7 @@ public class DiskMark {
     private double cumMin = 0;
     private double cumMax = 0;
     private double cumAvg = 0;
-    DiskMark(MarkType type) {
+    public DiskMark(MarkType type) {
         this.type = type;
     }
 
@@ -23,7 +22,7 @@ public class DiskMark {
         return "Mark(" + type + "): " + getMarkNum() + " bwMbSec: " + getBwMbSecAsString() + " avg: " + getAvgAsString();
     }
 
-    String getBwMbSecAsString() {
+    public String getBwMbSecAsString() {
         return df.format(getBwMbSec());
     }
 

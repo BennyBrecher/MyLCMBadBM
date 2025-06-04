@@ -31,4 +31,8 @@ public class AppBenchmarkSettings implements BenchmarkSettings {
     @Override public void incrementNextMarkNumber() { App.nextMarkNumber += App.numOfMarks; }
     @Override public void setIdleState() { App.state = App.State.IDLE_STATE; }
     @Override public void message(String message) { App.msg(message);}
+    @Override
+    public void setNextMarkNumber(int newNextMarkNumber) {
+        App.nextMarkNumber = newNextMarkNumber;
+    }
 }

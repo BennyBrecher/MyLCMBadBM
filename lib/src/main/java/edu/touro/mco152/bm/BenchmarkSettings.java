@@ -30,4 +30,7 @@ public interface BenchmarkSettings {
     void incrementNextMarkNumber();
     void setIdleState();
     void message(String message);
+
+    //added for command usage
+    void setNextMarkNumber(int newNextMarkNumber);
 }
